@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <form action="#">
+      <!--input의 type은 필수 속성-->
+      <input type="text" name="text" />
+      <input type="password" name="password" />
+
+      <div>
+        <!-- label이 표현할 input의 id속성 -->
+        <!-- label과 checkbox가 연결되어 체크박스가 아닌 라벨을 클릭해도 체크박스가 선택됨 -->
+        <label for="check1">체크박스1</label>
+        <input type="checkbox" id="check1" value="체크박스1" name="checkbox" />
+
+        <label for="check2">체크박스2</label>
+        <input type="checkbox" id="check2" value="체크박스2" name="checkbox" />
+      </div>
+      <div>
+        <label for="radio1">라디오1</label>
+        <input type="radio" id="radio1" value="라디오1" name="radio" />
+
+        <label for="radio2">라디오2</label>
+        <input type="radio" id="radio2" value="라디오2" name="radio" />
+      </div>
+      <div>
+        <!-- <input type="file" />
+        <input type="date" />
+        <input type="datetime" />
+        <input type="color" /> -->
+      </div>
+      <textarea name="" id=""></textarea>
+      <!-- select와 option -->
+      <select name="" id="">
+        <option>국가</option>
+        <option>대한민국</option>
+        <option>미국</option>
+        <option>중국</option>
+      </select>
+      <input type="submit" value="전송" />
+    </form>
+  </body>
+</html>
