@@ -1,0 +1,18 @@
+.header {
+  height: 200px;
+  background-color: lightblue;
+}
+
+/* sticky는 relative와 fixed를 합친 것 */
+.sticky {
+  height: 100px;
+  width: 100%;
+  background-color: lightcoral;
+  position: sticky;
+  top: 50px;
+}
+
+.content {
+  height: 2000px;
+  background-color: lightgray;
+}
