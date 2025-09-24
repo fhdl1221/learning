@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <button>클릭</button>
     <div id="parent"></div>
 
     <script>
@@ -44,7 +45,14 @@
           parentTag.append(pTag);
         });
       }
-      getProducts();
+      //getProducts();
+
+      // 태그명이 button인 요소의 click 이벤트가 발생했을 때
+      // 함수 getProducts가 호출되는 코드 작성
+      const buttonTag = document.querySelector("button");
+      buttonTag.addEventListener("click", () => {
+        getProducts();
+      });
 
       // 통신 연결 테스트 함수
       async function testConnect() {
