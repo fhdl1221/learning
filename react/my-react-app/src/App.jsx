@@ -9,12 +9,12 @@ import OnClick from "./components/EventHandling/OnClick";
 import OnChange from "./components/EventHandling/OnChange";
 import OnSubmit from "./components/EventHandling/OnSubmit";
 import Parent from "./components/Props/Parent";
-import ProfileContainer from "./components/PropsExample/ProfileContainer";
+import CardContainer from "./components/PropsFunction/CardContainer";
 
 export default function App() {
   return (
     <div>
-      <ProfileContainer />
+      <CardContainer />
     </div>
   );
 }
