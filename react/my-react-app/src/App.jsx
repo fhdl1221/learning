@@ -8,13 +8,13 @@ import MyList from "./components/Component/MyList";
 import OnClick from "./components/EventHandling/OnClick";
 import OnChange from "./components/EventHandling/OnChange";
 import OnSubmit from "./components/EventHandling/OnSubmit";
+import Parent from "./components/Props/Parent";
+import ProfileContainer from "./components/PropsExample/ProfileContainer";
 
 export default function App() {
   return (
     <div>
-      <OnClick></OnClick>
-      <OnChange></OnChange>
-      <OnSubmit></OnSubmit>
+      <ProfileContainer />
     </div>
   );
 }
