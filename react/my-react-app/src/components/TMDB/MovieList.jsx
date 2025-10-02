@@ -12,7 +12,7 @@ export default function MovieList() {
   useEffect(() => {
     async function fetchData() {
       const res = await getPopularMovies();
-      setMovies(res["data"]["results"]);
+      setMovies(res["results"]);
     }
 
     fetchData();

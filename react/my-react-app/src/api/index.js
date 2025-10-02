@@ -21,6 +21,32 @@ const axiosInstance = axios.create({
   timeout: 5000,
 });
 
+// 응답 인터셉터 : 서버가 사용자에게 돌려주는 응답 데이터를 가로채서 추가 작업을 수행
+axiosInstance.interceptors.response.use(
+  // 2개의 함수 전달
+  // 통신(요청-응답)이 성공했을 때의 함수
+  // 매개변수 response
+  (response) => {
+    console.log("통신 성공 응답 인터셉터");
+    return response["data"];
+  },
+  // 통신(요청-응답)이 실패했을 때의 함수
+  // 매개변수 error
+  (error) => {
+    if (error.response) {
+      // 401 : 인증 오류(API 키, 인증 토큰 문제)
+      if (error.response.status === 401) {
+        alert("인증에 문제가 있습니다.");
+      }
+      // 404 : Not Found(없는 주소를 요청)
+      else if (error.response.status === 404) {
+        alert("Not Found");
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default axiosInstance;
 // axios.get("/posts")
 // 만들어지는 URL : baseURL 속성 값 + "/posts"
