@@ -6,6 +6,7 @@ import { createBrowserRouter } from "react-router-dom";
 // 레이아웃 컴포넌트 불러오기
 import RootLayout from "../layout/RootLayout";
 import AuthLayout from "../layout/AuthLayout";
+import ProtectedLayout from "../layout/ProtectedLayout";
 
 // 페이지 컴포넌트 불러오기
 import Home from "../pages/RootPages/Home";
@@ -32,10 +33,6 @@ const router = createBrowserRouter([
         path: "about",
         Component: About,
       },
-      {
-        path: "profile",
-        Component: Profile,
-      },
     ],
   },
   // AuthLayout 경로 설정
@@ -54,6 +51,16 @@ const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+    ],
+  },
+  {
+    // path 속성 x
+    Component: ProtectedLayout,
+    children: [
+      {
+        path: "profile",
+        Component: Profile,
       },
     ],
   },
