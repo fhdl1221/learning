@@ -56,4 +56,4 @@
   9. 브랜치 삭제
   10. (로컬)git switch main
   11. (로컬)git pull origin main
-  
+  12. (로컬)git branch -D 브랜치명 //-d가 아니라 -D 로컬에서는 병합이 안된 브랜치이기 때문에 강제 삭제
