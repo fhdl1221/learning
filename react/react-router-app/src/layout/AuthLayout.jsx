@@ -11,7 +11,13 @@ export default function AuthLayout() {
       <div className="flex gap-2">
         {/* JSX 보간법 + 템플릿 리터럴 + 화살표 함수 + 삼항 연산자 혼합 */}
         {/* 삼항 연산자는 표현식이라서 템플릿 리터럴이 적용 가능하다 */}
-        <NavLink to="/auth" className={`${baseClass}`}>
+        <NavLink
+          to="/auth"
+          className={({ isActive }) =>
+            `${baseClass} ${isActive ? activeClass : ""}`
+          }
+          end
+        >
           인증 홈페이지
         </NavLink>
         <NavLink
