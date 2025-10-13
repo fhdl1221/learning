@@ -54,6 +54,11 @@
   7. 코드 검토(리뷰)
   8. 3개의 병합 방법 중 하나를 선택해서 병합 처리
   9. 브랜치 삭제
-  10. (로컬)git switch main
-  11. (로컬)git pull origin main
-  12. (로컬)git branch -D 브랜치명 //-d가 아니라 -D 로컬에서는 병합이 안된 브랜치이기 때문에 강제 삭제
+9. (로컬)git switch main
+10. (로컬)git pull origin main
+11. (로컬)git branch -D 브랜치명 //-d가 아니라 -D 로컬에서는 병합이 안된 브랜치이기 때문에 강제 삭제
+
+### 병합 방식 차이
+- merge : 병합 커밋이 생성된다
+- rebase : 여러 개의 커밋을 main 브랜치에 재배치한다
+- squash : 여러 개의 커밋을 하나로 합쳐서 main 브랜치에 재배치한다
