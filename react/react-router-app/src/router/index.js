@@ -17,6 +17,9 @@ import AuthHome from "../pages/AuthPages/AuthHome";
 import Signup from "../pages/AuthPages/Signup";
 import Login from "../pages/AuthPages/Login";
 
+import PostList from "../pages/RootPages/PostList";
+import PostDetail from "../pages/RootPages/PostDetail";
+
 // 라우터 생성
 const router = createBrowserRouter([
   {
@@ -32,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "about",
         Component: About,
+      },
+      {
+        path: "posts",
+        Component: PostList,
+      },
+      {
+        path: "posts/:postId",
+        Component: PostDetail,
       },
     ],
   },
