@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
+import PATHS from "../constants/paths";
+
 export default function AuthLayout() {
   // NavLink 기본 class
   const baseClass = `text-blue-900 font-bold p-2`;
@@ -12,7 +14,7 @@ export default function AuthLayout() {
         {/* JSX 보간법 + 템플릿 리터럴 + 화살표 함수 + 삼항 연산자 혼합 */}
         {/* 삼항 연산자는 표현식이라서 템플릿 리터럴이 적용 가능하다 */}
         <NavLink
-          to="/auth"
+          to={PATHS.AUTH.INDEX}
           className={({ isActive }) =>
             `${baseClass} ${isActive ? activeClass : ""}`
           }
@@ -21,7 +23,7 @@ export default function AuthLayout() {
           인증 홈페이지
         </NavLink>
         <NavLink
-          to="/auth/login"
+          to={PATHS.AUTH.LOGIN}
           className={({ isActive }) =>
             `${baseClass} ${isActive ? activeClass : ""}`
           }
@@ -29,7 +31,7 @@ export default function AuthLayout() {
           로그인 페이지
         </NavLink>
         <NavLink
-          to="/auth/signup"
+          to={PATHS.AUTH.SIGNUP}
           className={({ isActive }) =>
             `${baseClass} ${isActive ? activeClass : ""}`
           }
@@ -37,7 +39,7 @@ export default function AuthLayout() {
           회원가입 페이지
         </NavLink>
         <NavLink
-          to="/"
+          to={PATHS.ROOT.INDEX}
           className={({ isActive }) =>
             `${baseClass} ${isActive ? activeClass : ""}`
           }

@@ -20,10 +20,12 @@ import Login from "../pages/AuthPages/Login";
 import PostList from "../pages/RootPages/PostList";
 import PostDetail from "../pages/RootPages/PostDetail";
 
+import PATHS from "../constants/paths";
+
 // 라우터 생성
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: PATHS.ROOT.INDEX,
     Component: RootLayout,
     children: [
       // 중첩할 자식 경로 객체를 정의하는 배열
@@ -33,22 +35,22 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "about",
+        path: PATHS.ROOT.ABOUT,
         Component: About,
       },
       {
-        path: "posts",
+        path: PATHS.ROOT.POSTS,
         Component: PostList,
       },
       {
-        path: "posts/:postId",
+        path: PATHS.ROOT.POSTS_DETAIL,
         Component: PostDetail,
       },
     ],
   },
   // AuthLayout 경로 설정
   {
-    path: "/auth",
+    path: PATHS.AUTH.INDEX,
     Component: AuthLayout,
     children: [
       {
@@ -56,11 +58,11 @@ const router = createBrowserRouter([
         Component: AuthHome,
       },
       {
-        path: "signup",
+        path: PATHS.AUTH.SIGNUP,
         Component: Signup,
       },
       {
-        path: "login",
+        path: PATHS.AUTH.LOGIN,
         Component: Login,
       },
     ],
@@ -70,7 +72,7 @@ const router = createBrowserRouter([
     Component: ProtectedLayout,
     children: [
       {
-        path: "profile",
+        path: PATHS.ROOT.PROFILE,
         Component: Profile,
       },
     ],
