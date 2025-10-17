@@ -19,7 +19,7 @@ export default function Signup() {
       alert("회원가입이 완료되었습니다. 메일함을 확인하세요");
       dispatch(resetIsSignup);
 
-      navigate("/");
+      navigate("/login");
     }
   }, [isSignup, dispatch]);
 
@@ -65,7 +65,6 @@ export default function Signup() {
           name="email"
           value={email}
           placeholder="이메일 주소"
-          required
           onChange={(e) => {
             handleChange(e);
           }}
@@ -75,7 +74,6 @@ export default function Signup() {
           name="password"
           value={password}
           placeholder="비밀번호"
-          required
           onChange={(e) => {
             handleChange(e);
           }}
@@ -85,15 +83,18 @@ export default function Signup() {
           name="pwCheck"
           value={pwCheck}
           placeholder="비밀번호 확인"
-          required
           onChange={(e) => {
             handleChange(e);
           }}
         />
         {pwError && <p className="text-red-500">{pwError}</p>}
         <button type="submit">회원가입</button>
-        <button>로그인</button>
-        <button>처음으로</button>
+        <button type="button" onClick={() => navigate("/login")}>
+          로그인
+        </button>
+        <button type="button" onClick={() => navigate("/")}>
+          처음으로
+        </button>
       </form>
     </div>
   );
