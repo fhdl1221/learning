@@ -12,22 +12,47 @@ export default function RootLayout() {
   }
 
   return (
-    <div>
-      <header>
-        <nav>
-          {token ? (
-            <>
-              <button onClick={handleLogout}>로그아웃</button>
-            </>
-          ) : (
-            <>
-              <Link to="/signup">회원가입 페이지</Link>
-              <Link to="/login">로그인 페이지</Link>
-            </>
-          )}
+    <div className="min-h-screen bg-gray-100 font-sans">
+      {/* Header Content */}
+      <header className="bg-white shadow-sm">
+        <nav className="w-full px-10 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold text-gray-800">
+            <Link to="/">MemoApp</Link>
+          </div>
+          <div className="flex items-center space-x-4">
+            {token ? (
+              <>
+                <button
+                  onClick={handleLogout}
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition-colors"
+                >
+                  로그아웃
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/signup"
+                  className="text-gray-600 hover:text-blue-500 transition-colors"
+                >
+                  회원가입
+                </Link>
+                <Link
+                  to="/login"
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors"
+                >
+                  로그인
+                </Link>
+              </>
+            )}
+          </div>
         </nav>
       </header>
-      <Outlet></Outlet>
+
+      {/* Main Content */}
+      <main className="container mx-auto p-6">
+        <Outlet />
+      </main>
     </div>
   );
 }
