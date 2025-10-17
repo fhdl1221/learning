@@ -38,7 +38,7 @@ export default function RootLayout() {
               <>
                 <button
                   onClick={handleLogout}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 text-lg py-2 px-4 rounded transition-colors"
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded transition-colors"
                 >
                   로그아웃
                 </button>
@@ -64,7 +64,7 @@ export default function RootLayout() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto p-6">
+      <main>
         <Outlet />
       </main>
     </div>
