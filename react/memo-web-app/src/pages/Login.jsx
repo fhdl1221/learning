@@ -18,14 +18,49 @@ export default function Login() {
       navigate("/");
     }
   }, [token]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (email === "") {
+      alert("이메일을 입력해주세요");
+      return;
+    }
+    if (password === "") {
+      alert("비밀번호를 입력해주세요");
+      return;
+    }
+    dispatch(login({ email: email, password: password }));
+  }
   return (
     <div>
-      <form>
-        <input type="email" />
-        <input type="password" />
-        <button>로그인</button>
-        <button>회원가입</button>
-        <button>처음으로</button>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <input
+          type="email"
+          value={email}
+          placeholder="이메일 주소"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <input
+          type="password"
+          value={password}
+          placeholder="비밀번호"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <button type="submit">로그인</button>
+        <button type="button" onClick={() => navigate("/signup")}>
+          회원가입
+        </button>
+        <button type="button" onClick={() => navigate("/")}>
+          처음으로
+        </button>
       </form>
     </div>
   );
