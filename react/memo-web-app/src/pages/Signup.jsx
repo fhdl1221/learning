@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { signup, resetIsSignup } from "../store/authSlice";
 
 export default function Signup() {
@@ -10,92 +10,130 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [pwCheck, setPwCheck] = useState("");
-  const [pwError, setPwError] = useState("");
+  const [pwError, setPwError] = useState(false);
 
-  const isSignup = useSelector((state) => state.auth.isSignup);
+  const { isSignup, error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isSignup) {
-      alert("회원가입이 완료되었습니다. 메일함을 확인하세요");
-      dispatch(resetIsSignup);
-
+      alert("회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.");
+      dispatch(resetIsSignup());
       navigate("/login");
     }
   }, [isSignup, dispatch]);
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-
-    if (name === "email") {
-      setEmail(value);
+  useEffect(() => {
+    if (password && pwCheck && password !== pwCheck) {
+      setPwError(true);
+    } else {
+      setPwError(false);
     }
-    if (name === "password") {
-      setPassword(value);
-      if (pwCheck && value !== pwCheck)
-        setPwError("비밀번호가 일치하지 않습니다");
-      else setPwError("");
-    }
-    if (name === "pwCheck") {
-      setPwCheck(value);
-      if (password && value !== password)
-        setPwError("비밀번호가 일치하지 않습니다");
-      else setPwError("");
-    }
-  }
+  }, [password, pwCheck]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (password.length < 8) {
-      alert("비밀번호는 8글자 이상이어야 합니다");
+    if (pwError) {
+      alert("비밀번호가 일치하지 않습니다.");
       return;
     }
-
-    if (password !== pwCheck) {
-      alert("비밀번호가 일치하지 않습니다");
+    if (password.length < 8) {
+      alert("비밀번호는 8글자 이상이어야 합니다.");
       return;
     }
     dispatch(signup({ email: email, password: password }));
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="이메일 주소"
-          onChange={(e) => {
-            handleChange(e);
-          }}
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="비밀번호"
-          onChange={(e) => {
-            handleChange(e);
-          }}
-        />
-        <input
-          type="password"
-          name="pwCheck"
-          value={pwCheck}
-          placeholder="비밀번호 확인"
-          onChange={(e) => {
-            handleChange(e);
-          }}
-        />
-        {pwError && <p className="text-red-500">{pwError}</p>}
-        <button type="submit">회원가입</button>
-        <button type="button" onClick={() => navigate("/login")}>
-          로그인
-        </button>
-        <button type="button" onClick={() => navigate("/")}>
-          처음으로
-        </button>
-      </form>
+    <div className="flex justify-center items-center h-screen">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          회원가입
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              이메일 주소
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              비밀번호 (8자 이상)
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              htmlFor="pwCheck"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              비밀번호 확인
+            </label>
+            <input
+              type="password"
+              id="pwCheck"
+              name="pwCheck"
+              value={pwCheck}
+              onChange={(e) => setPwCheck(e.target.value)}
+              required
+              className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${
+                pwError ? "border-red-500" : ""
+              }`}
+            />
+            {pwError && (
+              <p className="text-red-500 text-xs italic">
+                비밀번호가 일치하지 않습니다.
+              </p>
+            )}
+          </div>
+          {error && (
+            <p className="text-red-500 text-xs italic mb-4">{error.message}</p>
+          )}
+          <div className="flex flex-col items-center justify-between">
+            <button
+              type="submit"
+              disabled={pwError}
+              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors disabled:bg-gray-400"
+            >
+              회원가입
+            </button>
+            <Link
+              to="/login"
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-4"
+            >
+              이미 계정이 있으신가요? 로그인
+            </Link>
+            <Link
+              to="/"
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-4"
+            >
+              처음으로
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
