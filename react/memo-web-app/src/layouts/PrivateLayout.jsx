@@ -7,6 +7,10 @@ export default function PrivateLayout() {
   if (!token) {
     return <Navigate to="/login"></Navigate>;
   } else {
-    return <Outlet></Outlet>;
+    return (
+      <div className="h-full">
+        <Outlet />
+      </div>
+    );
   }
 }
