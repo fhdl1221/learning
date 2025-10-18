@@ -17,7 +17,7 @@ export default function RootLayout() {
       <header className="bg-white shadow-sm">
         <nav className="w-full px-10 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-8">
-            <Link to="/" className="text-2xl font-bold text-gray-800">
+            <Link to="/" className="text-xl font-bold text-gray-800">
               MemoApp
             </Link>
             <Link
