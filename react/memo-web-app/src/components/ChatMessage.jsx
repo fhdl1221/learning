@@ -47,16 +47,16 @@ export default function ChatMessage({ message }) {
         }`}
       >
         {isUser ? (
-          <div className="p-3 bg-blue-500 text-white rounded-2xl rounded-br-none shadow-sm max-w-[80%]">
+          <div className="px-4 py-3 bg-blue-500 text-white rounded-2xl rounded-br-none shadow-md max-w-[80%]">
             {message.content}
           </div>
         ) : data ? (
           data.isMemo ? (
-            <div className="p-5 bg-gray-200 rounded-2xl rounded-bl-none shadow-sm max-w-[90%]">
+            <div className="p-5 bg-gray-200 rounded-2xl rounded-bl-none shadow-md max-w-[90%]">
               <h3 className="font-semibold text-gray-800 mb-2">
                 📝 {data.title || "제목 없음"}
               </h3>
-              <div className="text-sm text-gray-600 space-y-1">
+              <div className="text-md text-gray-800 space-y-2">
                 <p>
                   <strong>📅 마감일 :</strong> {data.date || "마감 기한 없음"}
                 </p>
@@ -70,7 +70,7 @@ export default function ChatMessage({ message }) {
               <button
                 onClick={handleSave}
                 disabled={saved || saving}
-                className={`mt-3 text-sm px-3 py-1 rounded-lg transition ${
+                className={`mt-3 text-sm px-3 py-2 rounded-lg transition ${
                   saved
                     ? "bg-yellow-500 text-white cursor-default"
                     : saving
@@ -82,12 +82,12 @@ export default function ChatMessage({ message }) {
               </button>
             </div>
           ) : (
-            <div className="p-3 bg-gray-200 text-gray-900 rounded-2xl rounded-bl-none shadow-sm max-w-[80%]">
+            <div className="p-3 bg-gray-200 text-gray-900 rounded-2xl rounded-bl-none shadow-md max-w-[80%]">
               할 일과 관련이 없습니다
             </div>
           )
         ) : (
-          <div className="p-3 bg-red-100 text-red-800 rounded-2xl max-w-[80%]">
+          <div className="p-3 bg-red-100 text-red-800 rounded-2xl rounded-bl-none shadow-md max-w-[80%]">
             JSON 파싱 실패: {message.content}
           </div>
         )}

@@ -6,7 +6,7 @@ export default function Home() {
     <main className="flex-grow">
       {/* Hero Section */}
       <section className="relative flex min-h-[70vh] items-center justify-center bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 text-center text-text-primary">
+        <div className="max-w-7xl mx-auto px-8 text-center text-text-primary">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             AI-Powered Memo Management
           </h1>
@@ -37,7 +37,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-3 p-8">
             {/* Feature 1 */}
-            <div className="flex flex-col gap-4 rounded-xl bg-background-card bg-blue-50 p-6 shadow-sm">
+            <div className="flex flex-col gap-4 rounded-xl bg-background-card bg-gray-50 p-6 shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 📝
               </div>
@@ -51,7 +51,7 @@ export default function Home() {
             </div>
 
             {/* Feature 2 */}
-            <div className="flex flex-col gap-4 rounded-xl bg-background-card bg-blue-50 p-6 shadow-sm">
+            <div className="flex flex-col gap-4 rounded-xl bg-background-card bg-gray-50 p-6 shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 📋
               </div>
@@ -63,7 +63,7 @@ export default function Home() {
             </div>
 
             {/* Feature 3 */}
-            <div className="flex flex-col gap-4 rounded-xl bg-background-card bg-blue-50 p-6 shadow-sm">
+            <div className="flex flex-col gap-4 rounded-xl bg-background-card bg-gray-50 p-6 shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 ✅
               </div>
