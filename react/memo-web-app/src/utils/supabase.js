@@ -34,7 +34,7 @@ async function getMemo() {
       },
       params: {
         select: "*",
-        order: "priority.desc",
+        order: "id.asc",
       },
     };
     const response = await axios(config);
@@ -43,4 +43,25 @@ async function getMemo() {
     console.log(error);
   }
 }
-export { postMemo, getMemo };
+
+async function updateState(id, newState) {
+  try {
+    const config = {
+      method: "PATCH",
+      url: `${BASE_URL}/rest/v1/todos?id=eq.${id}`,
+      headers: {
+        "Content-type": "application/json",
+        apikey: ANON_KEY,
+        Authorization: `Bearer ${ANON_KEY}`,
+      },
+      data: {
+        state: newState,
+      },
+    };
+    const response = await axios(config);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+export { postMemo, getMemo, updateState };
