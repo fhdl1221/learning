@@ -12,9 +12,9 @@ export default function RootLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
+    <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
       {/* Header Content */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-sm flex-shrink-0">
         <nav className="w-full px-10 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-8">
             <Link to="/" className="text-xl font-bold text-gray-800">
@@ -64,9 +64,9 @@ export default function RootLayout() {
       </header>
 
       {/* Main Content */}
-      <main>
+      <div className="flex-grow flex">
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 }

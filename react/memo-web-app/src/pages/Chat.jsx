@@ -37,7 +37,7 @@ export default function Chat() {
   }
 
   return (
-    <div className="h-full flex flex-col relative">
+    <div className="flex-grow flex flex-col relative">
       {/* 사용자 - AI 대화 내용 출력 컴포넌트 */}
       <MessageList messages={messages}></MessageList>
       {/* 사용자의 프롬프트 작성 폼 컴포넌트 */}

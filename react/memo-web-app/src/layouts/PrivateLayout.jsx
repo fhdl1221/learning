@@ -8,7 +8,7 @@ export default function PrivateLayout() {
     return <Navigate to="/login"></Navigate>;
   } else {
     return (
-      <div className="h-full">
+      <div className="flex-grow flex">
         <Outlet />
       </div>
     );
