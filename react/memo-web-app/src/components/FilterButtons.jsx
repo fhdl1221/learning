@@ -6,7 +6,7 @@ export default function FilterButtons({ filter, setFilter }) {
   ];
 
   return (
-    <div className="flex gap-4 mb-4">
+    <div className="flex gap-4">
       {buttons.map((btn) => (
         <button
           key={btn.value}

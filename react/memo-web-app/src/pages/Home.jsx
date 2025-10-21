@@ -4,22 +4,24 @@ export default function Home() {
   const navigate = useNavigate();
   return (
     <main className="flex-grow">
-      {/* Hero Section */}
-      <section className="relative flex min-h-[70vh] items-center justify-center bg-blue-50">
+      {/* Home Section */}
+      <section className="relative flex min-h-[80vh] items-center justify-center bg-blue-50">
         <div className="max-w-7xl mx-auto px-8 text-center text-text-primary">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            AI-Powered Memo Management
+            AI Memo Management
           </h1>
+          <p className="text-2xl font-semibold lg:text-2xl mt-5">
+            AI로 더 스마트하게 메모 관리하기
+          </p>
           <p className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
-            Transform your tasks into concise, actionable memos with our
-            AI-driven summarization. Save, review, and track your progress
-            effortlessly.
+            할 일을 AI가 한눈에 보기 쉬운 메모로 정리해드려요. <br />
+            저장하고, 확인하고, 진행 상황을 손쉽게 관리하세요.
           </p>
           <button
             onClick={() => navigate("/chat")}
             className="mt-8 rounded-lg bg-blue-900 px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105"
           >
-            Get Started Now
+            지금 시작하기
           </button>
         </div>
       </section>
@@ -28,11 +30,9 @@ export default function Home() {
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary">
-              Key Features
-            </h2>
+            <h2 className="text-3xl font-bold text-text-primary">주요 기능</h2>
             <p className="mt-4 text-lg text-text-secondary">
-              Streamline your workflow and stay organized with MemoAI.
+              MemoAI로 더 효율적이고 체계적인 하루를 만들어보세요.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-3 p-8">
@@ -41,12 +41,10 @@ export default function Home() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 📝
               </div>
-              <h3 className="text-xl font-bold text-text-primary">
-                AI Summarization
-              </h3>
+              <h3 className="text-xl font-bold text-text-primary">AI 요약</h3>
               <p className="text-text-secondary text-gray-600">
-                Our AI algorithms analyze your tasks and generate clear, concise
-                memos, highlighting key information and action items.
+                AI가 당신의 할 일을 분석해 핵심만 깔끔하게 정리된 메모로
+                만들어드립니다.
               </p>
             </div>
 
@@ -55,10 +53,9 @@ export default function Home() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 📋
               </div>
-              <h3 className="text-xl font-bold text-text-primary">Memo List</h3>
+              <h3 className="text-xl font-bold text-text-primary">메모 목록</h3>
               <p className="text-text-secondary text-gray-600">
-                View all your saved memos in one place. Easily search, filter,
-                and organize your memos for quick access.
+                저장된 메모를 한눈에 확인하고, 검색 및 정렬로 빠르게 찾아보세요.
               </p>
             </div>
 
@@ -67,12 +64,9 @@ export default function Home() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 ✅
               </div>
-              <h3 className="text-xl font-bold text-text-primary">
-                Task Completion
-              </h3>
+              <h3 className="text-xl font-bold text-text-primary">진행 관리</h3>
               <p className="text-text-secondary text-gray-600">
-                Mark memos as complete or incomplete to track your progress and
-                stay organized. Keep your task list up-to-date.
+                메모를 완료/미완료로 표시해 진행 상황을 명확하게 관리하세요.
               </p>
             </div>
           </div>
@@ -83,11 +77,9 @@ export default function Home() {
       <section className="py-16 sm:py-24 bg-background-card bg-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary">
-              How It Works
-            </h2>
+            <h2 className="text-3xl font-bold text-text-primary">이용 방법</h2>
             <p className="mt-4 text-lg text-text-secondary">
-              A simple three-step process to boost your productivity.
+              세 단계로 끝내는 간단한 생산성 향상 루틴!
             </p>
           </div>
 
@@ -105,10 +97,10 @@ export default function Home() {
                   </div>
                   <div className="ml-4 md:ml-0 md:mt-4">
                     <h3 className="text-xl font-bold text-text-primary">
-                      Submit Your Tasks
+                      할 일 입력하기
                     </h3>
                     <p className="mt-2 text-text-secondary text-gray-600">
-                      Enter your tasks in a simple text format.
+                      해야 할 일을 간단히 텍스트로 입력하세요.
                     </p>
                   </div>
                 </div>
@@ -121,10 +113,11 @@ export default function Home() {
                   </div>
                   <div className="ml-4 md:ml-0 md:mt-4">
                     <h3 className="text-xl font-bold text-text-primary">
-                      AI Summarization
+                      AI 요약하기
                     </h3>
                     <p className="mt-2 text-text-secondary text-gray-600">
-                      Our AI processes your tasks and generates a concise memo.
+                      AI가 입력한 내용을 분석해 핵심 메모를 자동으로
+                      만들어드립니다.
                     </p>
                   </div>
                 </div>
@@ -137,10 +130,10 @@ export default function Home() {
                   </div>
                   <div className="ml-4 md:ml-0 md:mt-4">
                     <h3 className="text-xl font-bold text-text-primary">
-                      Manage Your Memos
+                      메모 관리하기
                     </h3>
                     <p className="mt-2 text-text-secondary text-gray-600">
-                      Save, review, and track your memos in your personal list.
+                      생성된 메모를 저장하고, 확인하며, 진행 상황을 관리하세요.
                     </p>
                   </div>
                 </div>
@@ -154,16 +147,16 @@ export default function Home() {
       <section className="py-16 sm:py-24 text-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-text-primary">
-            Ready to Get Started?
+            지금 바로 시작해보세요!
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-text-secondary text-gray-600">
-            Sign up today and experience the power of AI-driven memo management.
+            AI가 도와주는 스마트한 메모 관리, 직접 경험해보세요.
           </p>
           <button
             onClick={() => navigate("/chat")}
             className="mt-8 rounded-lg bg-blue-900 px-6 py-3 text-base font-bold text-white shadow-lg transition-transform hover:scale-105"
           >
-            Create Your First Memo
+            첫 번째 메모 만들기
           </button>
         </div>
       </section>

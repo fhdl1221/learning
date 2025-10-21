@@ -64,4 +64,21 @@ async function updateState(id, newState) {
     console.log(error);
   }
 }
-export { postMemo, getMemo, updateState };
+
+async function deleteMemo(id) {
+  try {
+    const config = {
+      method: "DELETE",
+      url: `${BASE_URL}/rest/v1/todos?id=eq.${id}`,
+      headers: {
+        apikey: ANON_KEY,
+        Authorization: `Bearer ${ANON_KEY}`,
+      },
+    };
+    const response = await axios(config);
+    console.log(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+export { postMemo, getMemo, updateState, deleteMemo };

@@ -18,7 +18,7 @@ export default function RootLayout() {
         <nav className="w-full px-10 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-8">
             <Link to="/" className="text-xl font-bold text-gray-800">
-              MemoApp
+              MemoAI
             </Link>
             <Link
               to="/chat"
@@ -47,13 +47,13 @@ export default function RootLayout() {
               <>
                 <Link
                   to="/signup"
-                  className="text-gray-600 hover:text-blue-500 transition-colors text-lg"
+                  className="text-gray-600 hover:text-blue-500 transition-colors"
                 >
                   회원가입
                 </Link>
                 <Link
                   to="/login"
-                  className="bg-blue-500 hover:bg-blue-600 text-white text-lg py-2 px-4 rounded transition-colors"
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors"
                 >
                   로그인
                 </Link>
